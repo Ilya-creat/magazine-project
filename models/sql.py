@@ -1,6 +1,6 @@
 import sqlite3
 from db import db_session
-from db import __all_models
+from db.__all_models import product
 
 
 class DataBase:
@@ -12,3 +12,11 @@ class DataBase:
 
         self.db_session = db_session
         self.db_session.global_init(db)
+
+    def get_products_all(self):
+        try:
+            db_sess = self.db_session.create_session()
+            ans = db_sess.query(product.Product).all()
+            return ans
+        except Exception as e:
+            print("(get_products_all):", e)
