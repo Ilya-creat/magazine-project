@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 from models.sql import DataBase
 
 app = Flask(__name__, subdomain_matching=True)
@@ -19,9 +19,12 @@ def main():
 # API
 @app.route('/api/search', methods=["POST", "GET"])
 def searching():
-    rs = request.json
-    print(rs)
-    return "ok"
+    rs = request.get_json()
+    search = rs['text'].split()
+    result = dbase.get_product(*search)
+    return jsonify({
+        "fragments": render_template("product_fragment.html", products=result)
+    })
 
 
 if __name__ == '__main__':
