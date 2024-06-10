@@ -487,16 +487,16 @@ dialog {
     right: -400px; /* Элемент спрятан за левым краем */
 }
 
-form {
+fom {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-form label {
+fom label {
     font-weight: bold;
     font-size: 16px;
 }
-form input {
+fom input {
     width: 320px;
     height: 40px;
     padding: 5px;

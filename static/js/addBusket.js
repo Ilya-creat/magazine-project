@@ -25,13 +25,13 @@ document.addEventListener('DOMContentLoaded', function() {
     function drawbusket(name, count, price, id) {
         let busketItem = `
         <div class="mealLine" id=${id}>
-            <h3>${name}</h3>
+            <h3 class="mealLine-name">${name}</h3>
             <div class="countBlock">
                 <button class="minus">-</button>
                 <h3 class="pm_counter">${count}</h3>
                 <button class="plus">+</button>
             </div>
-            <h3>${price}</h3>
+            <h3 class="mealLine-price">${price}</h3>
         </div>`;
         busketMeals.insertAdjacentHTML('beforeend', busketItem);
         busketMeals2.insertAdjacentHTML('beforeend', busketItem);

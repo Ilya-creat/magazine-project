@@ -1,8 +1,10 @@
 import sqlite3
 from db import db_session
+from db.payments import Payments
 from db.product import Product
 from db.tags import Tags
 from difflib import SequenceMatcher
+
 
 def similar(a, b):
     return SequenceMatcher(None, a, b).ratio()
@@ -43,3 +45,18 @@ class DataBase:
         except Exception as e:
             print("(get_product):", e)
             return []
+
+    def create_payment(self, uuid, name, number, address, order, status):
+        try:
+            db_sess = self.db_session.create_session()
+            payment = Payments()
+            payment.name = name
+            payment.uuid = uuid
+            payment.number = number
+            payment.address = address
+            payment.order = order
+            payment.status = status
+            db_sess.add(payment)
+            db_sess.commit()
+        except Exception as e:
+            print("(create_payment):", e)

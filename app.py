@@ -1,6 +1,9 @@
 import os
+import uuid
 
 from flask import Flask, render_template, request, jsonify
+
+from models.payment import Payment
 from models.sql import DataBase
 
 app = Flask(__name__, subdomain_matching=True)
@@ -14,6 +17,17 @@ dbase = DataBase(app.config["DATABASE"])
 def main():
     result = dbase.get_products_all()
     return render_template('index.html', products=result)
+
+
+@app.route('/redirect', methods=["POST"])
+def redirect():
+    w = request.args
+    if "page" in w.keys():
+        if "payment" in w.get("page"):
+            res = request.get_json()
+            print(res)
+            pay = Payment(uuid.uuid4().hex, res["user"], res["number"], res["address"], res["order"], dbase)
+    return ""
 
 
 # API
@@ -41,6 +55,7 @@ def searching():
         return jsonify({
             "products": res
         })
+
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5000, debug=True)

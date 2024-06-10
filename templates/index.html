@@ -171,7 +171,7 @@
 
     <dialog>
         <button class='close'autofocus></button>
-        <form>
+        <fom class="dialog-post" id="user-form">
             <label for="name">Имя Фамилия</label>
             <br>
             <input type="text" id="name">
@@ -180,13 +180,13 @@
             <br>
             <input type="text" id="phone">
             <br>
-            <label for="adress">Домашний адресс</label>
+            <label for="address">Домашний адресс</label>
             <br>
-            <input type="text" id="adress">
+            <input type="text" id="address">
             <h1 style="margin-top: 10px;">Сумма</h1>
             <h1 class="feguf3" style="margin: 10px; font-size: 24px;">0</h1>
             <button class="payBtn"><h1>Оплатить</h1></button>
-          </form>
+          </fom>
     </dialog>
 
     <script src="{{ url_for('static', filename='js/scriptVesrt.js')}}"></script>
@@ -195,5 +195,7 @@
     <script src="{{ url_for('static', filename='js/search.js')}}"></script>
     <script src="{{ url_for('static', filename='js/showing.js')}}"></script>
     <script src="{{ url_for('static', filename='js/from.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/payment.js')}}"></script>
+
 </body>
 </html>
