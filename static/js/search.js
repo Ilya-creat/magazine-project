@@ -1,6 +1,15 @@
 
 const search = document.querySelector('.searchButton');
-search.addEventListener('click', search_post)
+search.addEventListener('click', search_post);
+
+function showStuff(id, bool) {
+    console.log(id, bool, "#test-" + id, document.querySelector("#test-" + id));
+    if (bool === false)
+        document.querySelector("#test-" + id).style.display = 'none';
+    else
+        document.querySelector("#test-" + id).style.display = 'block';
+}
+
 function search_post() {
     $.ajax(
         {
@@ -20,7 +29,10 @@ function search_post() {
             method: "post",
             script: "jquery",
             success: function (data) {
-                $('.cardContainer').html(data.fragments).trigger('click');
+
+                for(let i = 0; i < data.products.length; i++){
+                    showStuff(data.products[i].id, data.products[i].bool);
+                }
             },
             complete: function (data) {
 

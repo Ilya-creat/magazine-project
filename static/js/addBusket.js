@@ -2,10 +2,11 @@ let busketObject = {
     //id: [количество, цена, name]
 }
 let total = document.querySelector('.feguf')
-
+let total2 = document.querySelector('.feguf2')
+let total3 = document.querySelector('.feguf3')
 document.addEventListener('DOMContentLoaded', function() {
     const busketMeals = document.querySelector('.busketMeals');
-
+    const busketMeals2 = document.querySelector('.busketMeals2');
     function sms(obj) {
         let sumOfProducts = 0;
 
@@ -16,6 +17,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
         total.textContent = `${sumOfProducts}₽`
+        total2.textContent = `${sumOfProducts}₽`
+        total3.textContent = `${sumOfProducts}₽`
         return sumOfProducts;
     }
 
@@ -31,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <h3>${price}</h3>
         </div>`;
         busketMeals.insertAdjacentHTML('beforeend', busketItem);
+        busketMeals2.insertAdjacentHTML('beforeend', busketItem);
         const mealLine = busketMeals.lastElementChild;
         const minusButton = mealLine.querySelector('.minus');
         const plusButton = mealLine.querySelector('.plus');
@@ -45,6 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 delete busketObject[id];
                 busketMeals.removeChild(mealLine);
+                busketMeals2.removeChild(mealLine);
                 sms(busketObject)
             }
         });
@@ -75,6 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             busketMeals.innerHTML = "";
+            busketMeals2.innerHTML = "";
 
             for (const key in busketObject) {
                 if (Object.hasOwnProperty.call(busketObject, key)) {

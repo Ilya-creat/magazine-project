@@ -63,11 +63,22 @@
                 <div class="busketBlockSecond"></div>
             </div>
 
+            <div class="busketBlockSecond showElement"></div>
+                <div class="showBlok hidden">
+                    <div class="busketSecondMain">
+                        <h1 class="feguf2" style="margin: 10px; font-size: 24px;">0</h1>
+                        <div class="busketMeals2" style="padding: 10px;"></div>
+                    </div>
+                    <button class="busketButton">
+                        <h1>Оплатить</h1>
+                    </button>
+            </div>
+
             <div class="mainPartblock">
                 <div class="dropTwo"></div>
                 <div class="cardContainer">
                     {% for elem in products %}
-                        <div class="card">
+                        <div class="card" id = "test-{{ elem.id }}" counter="{{ elem.count }}" style="display: block">
                             <img src="{{ elem.picture }}" alt="" class="photo">
                             <div class="underBlock">
                                 <div class="cardBuble"></div>
@@ -76,7 +87,6 @@
                             </div>
                             <h1 class="nameProduct" id="{{ elem.id }}">{{ elem.name }}</h1>
                             <p class="descriptionProduct">{{ elem.info }}</p>
-                            <div class="ctgr" ctgr="fish"></div>
                         </div>
                     {% endfor %}
                 </div>
@@ -175,7 +185,7 @@
             <input type="text" id="adress">
             <h1 style="margin-top: 10px;">Сумма</h1>
             <h1 class="feguf3" style="margin: 10px; font-size: 24px;">0</h1>
-            <div class="payBlock"></div>
+            <button class="payBtn"><h1>Оплатить</h1></button>
           </form>
     </dialog>
 

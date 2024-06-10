@@ -196,9 +196,7 @@ main {
     height: 50px;
     background-color: #f1f1f1;
 }    
-.sortButton:hover {
-    cursor: pointer;
-}                                                                                                                                    
+
 
 .inputContainer {
     display: flex;
@@ -210,7 +208,7 @@ main {
 
 .form-input {
     position: relative;
-    
+
 }
 
 .form-input input::placeholder {
@@ -257,14 +255,14 @@ main {
 .searchButton {
     display: block;
     background: none;
-    position: relative;    
+    position: relative;
 
     width: 80px;
     height: 40px;
     border: 1px solid #00000065;
     margin-left: 10px;
     background-color: var(--main-color);
-    
+
     border-radius: 10px;
     transition: ease-in-out 0.3s;
 
@@ -275,8 +273,8 @@ main {
 .searchButton:hover {
     background-color: black;
     color: white;
-    -moz-box-shadow:0 0 5px #000; 
-    -webkit-box-shadow:0 0 5px #000; 
+    -moz-box-shadow:0 0 5px #000;
+    -webkit-box-shadow:0 0 5px #000;
     box-shadow:0 0 10px #000;
 
     cursor: pointer;
@@ -285,9 +283,9 @@ main {
 .mainPartblock {
     height: auto;
     margin-top: 20px;
-    
+
     position: relative;
-    
+
     display: grid;
     grid-template-columns: repeat(4, 1fr) 350px;
     grid-template-rows: repeat(3, 1fr);
@@ -423,7 +421,7 @@ main {
     right: 20px;
 
     display: none;
-    background-image: url('/In_work-web/images/busket.png');
+    background-image: url('../images/busket.png');
     background-size: 50px 50px;
     background-position: center;
     background-repeat: no-repeat;
@@ -444,7 +442,12 @@ dialog {
 .close {
     width: 50px;
     height: 50px;
-    background-color: red;
+    border: none;
+    background-color: none;
+    background-image: url('../images/back.png');
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .showBlok {
@@ -496,15 +499,27 @@ form label {
 form input {
     width: 320px;
     height: 40px;
+    padding: 5px;
+    font-size: 24px;
 }
-.payBlock {
-    width: 90%;
+.payBtn {
+    width: 250px;
     border: 2px solid black;
-    height: 75px;
+    background-color: #fff;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    transition: 0.2s ease-in-out;
 }
-
+.payBtn:hover {
+    cursor: pointer;
+    background-color: var(--main-color);
+}
 
 .card {
+    display: block;
     border: 2px solid black;
     border-radius: 10px;
     width: 250px;
@@ -578,7 +593,7 @@ form input {
 .photo {
     position: absolute;
     left: 10px;
-    width: 150px;
+    width: auto;
     height: 220px;
 }
 
@@ -751,59 +766,57 @@ footer h1 {
     }
 }
 button[fish-btn] {
-    background: url('/In_work-web/images/fish.png');
+    background: url('../images/fish.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 50px 50px;
 }
 
 button[meat-btn] {
-    background: url('/In_work-web/images/meat.png');
+    background: url('../images/meat.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 50px 50px;
 }
 
 button[veg-btn] {
-    background: url('/In_work-web/images/veg.png');
+    background: url('../images/veg.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 50px 50px;
 }
 button[milk-btn] {
-    background: url('/In_work-web/images/milk.png');
+    background: url('../images/milk.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 50px 50px;
 }
 
 .ctgr[ctgr='fish'] {
-    background: url('/In_work-web/images/fish.png');
+    background: url('../images/fish.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 200px auto;
 }
 
 .ctgr[ctgr='meat'] {
-    background: url('/In_work-web/images/meat.png');
+    background: url('../images/meat.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 200px auto;
 }
 .ctgr[ctgr='milk'] {
-    background: url('/In_work-web/images/milk.png');
+    background: url('../images/milk.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 200px auto;
 }
 .ctgr[ctgr='veg'] {
-    background: url('/In_work-web/images/veg.png');
+    background: url('../images/veg.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 200px auto;
 }
-
-
 @media (max-width: 750px) {
     .tranferContainer {display: none;}
     header {height: 60px;}
