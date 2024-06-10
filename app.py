@@ -1,7 +1,7 @@
 import os
 import uuid
 
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, redirect, render_template, request, jsonify, url_for
 
 from models.payment import Payment
 from models.sql import DataBase
@@ -19,6 +19,11 @@ def main():
     return render_template('index.html', products=result)
 
 
+@app.route("/payment/merchant")
+def pay():
+    return render_template('success.html')
+
+
 @app.route('/redirect', methods=["POST"])
 def redirect():
     w = request.args
@@ -27,6 +32,12 @@ def redirect():
             res = request.get_json()
             print(res)
             pay = Payment(uuid.uuid4().hex, res["user"], res["number"], res["address"], res["order"], dbase)
+            # ... merchent create
+            check = True
+            if check:
+                return jsonify({
+                    "url": "/payment/merchant"
+                })
     return ""
 
 

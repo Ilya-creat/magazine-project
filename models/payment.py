@@ -5,7 +5,7 @@ class Payment:
         self.number = number
         self.address = address
         self.order = order
-        self.status = False
+        self.status = True  # False
         self.dbase = dbase
         self.create_payment()
 

@@ -37,6 +37,7 @@ function payment_post() {
             method: "post",
             script: "jquery",
             success: function (data) {
+                document.location.href=data.url;
             },
             complete: function (data) {
 
