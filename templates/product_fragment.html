@@ -1,0 +1,15 @@
+<div class="cardContainer">
+    {% for elem in products %}
+        <div class="card">
+            <img src="{{ elem.picture }}" alt="" class="photo">
+            <div class="underBlock">
+                <div class="cardBuble"></div>
+                <h1>{{ elem.price }}</h1>
+                <button class="addBusket">В корзину</button>
+            </div>
+            <h1 class="nameProduct" id="{{ elem.id }}">{{ elem.name }}</h1>
+            <p class="descriptionProduct">{{ elem.info }}</p>
+            <div class="ctgr" ctgr="fish"></div>
+        </div>
+    {% endfor %}
+</div>

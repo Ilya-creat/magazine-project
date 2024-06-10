@@ -159,9 +159,31 @@
         </footer>
     </div>
 
+    <dialog>
+        <button class='close'autofocus></button>
+        <form>
+            <label for="name">Имя Фамилия</label>
+            <br>
+            <input type="text" id="name">
+            <br>
+            <label for="phone">Номер телефона</label>
+            <br>
+            <input type="text" id="phone">
+            <br>
+            <label for="adress">Домашний адресс</label>
+            <br>
+            <input type="text" id="adress">
+            <h1 style="margin-top: 10px;">Сумма</h1>
+            <h1 class="feguf3" style="margin: 10px; font-size: 24px;">0</h1>
+            <div class="payBlock"></div>
+          </form>
+    </dialog>
+
     <script src="{{ url_for('static', filename='js/scriptVesrt.js')}}"></script>
     <script src="{{ url_for('static', filename='js/counter.js')}}"></script>
     <script src="{{ url_for('static', filename='js/addBusket.js')}}"></script>
     <script src="{{ url_for('static', filename='js/search.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/showing.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/from.js')}}"></script>
 </body>
 </html>
