@@ -4,9 +4,9 @@ pay.addEventListener('click', payment_post);
 function payment_post() {
     let vs = document.querySelector('.busketMeals')
     let s = new Array(vs.length);
-    console.log(vs.children)
+    // console.log(vs.children)
     for(let i = 0; i < vs.children.length; i++){
-        console.log(vs.children[i].children[0].innerText)
+        // console.log(vs.children[i].children[0].innerText)
         s[i] = JSON.stringify(
                 {
                     "products": {
@@ -31,6 +31,7 @@ function payment_post() {
                 "user": document.querySelector("#name").value,
                 "number": document.querySelector("#phone").value,
                 "address": document.querySelector("#address").value,
+                "email": document.querySelector("#email").value,
                 "order": s
                 }
             ),

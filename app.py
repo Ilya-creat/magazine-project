@@ -1,15 +1,18 @@
+import ast
 import os
 import uuid
 
 from flask import Flask, redirect, render_template, request, jsonify, url_for
 
 from models.payment import Payment
+from models.smtp import SMTP
 from models.sql import DataBase
-
+from dotenv import load_dotenv
+load_dotenv()
 app = Flask(__name__, subdomain_matching=True)
 app.config.from_object(__name__)  # load configuration
 app.config.update(dict(DATABASE=os.path.join(app.root_path, 'dbase.db')))
-app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
+app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
 dbase = DataBase(app.config["DATABASE"])
 
 
@@ -30,11 +33,23 @@ def redirect():
     if "page" in w.keys():
         if "payment" in w.get("page"):
             res = request.get_json()
-            print(res)
-            pay = Payment(uuid.uuid4().hex, res["user"], res["number"], res["address"], res["order"], dbase)
+            # print(res)
+            uuid_ = uuid.uuid4().hex
+            pay = Payment(uuid_, res["user"], res["number"], res["address"], res["order"], dbase)
+            rs = []
+            sm = 0
+            for i in res["order"]:
+                i = ast.literal_eval(i)
+                rs.append({
+                    "name": i["products"]["name"],
+                    "count": i["products"]["count"],
+                    "price": i["products"]["price"]
+                })
+            sm += float(i["products"]["price"]) * int(i["products"]["count"])
             # ... merchent create
             check = True
             if check:
+                SMTP(res["email"]).send_emai(uuid_, rs, sm)
                 return jsonify({
                     "url": "/payment/merchant"
                 })
